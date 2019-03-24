@@ -6,6 +6,7 @@
   <title>Home Weather App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <style>
     body {
@@ -22,21 +23,22 @@
 
   </ul>
   <script>
+
+  var config = {
+    lat: 55.589989,
+    lon: 13.011290,
+    description: ["Clear sky", "Nearly clear sky", "Variable cloudiness", "Halfclear sky", "Cloudy sky", "Overcast", "Fog", "Light rain showers", "Moderate rain showers", "Heavy rain showers", "Thunderstorm", "Light sleet showers", "Moderate sleet showers", "Heavy sleet showers", "Light snow showers", "Moderate snow showers", "Heavy snow showers", "Light rain", "Moderate rain", "Heavy rain", "Thunder", "Light sleet", "Moderate sleet", "Heavy sleet", "Light snowfall", "Moderate snowfall", "Heavy snowfall"]
+  }
+  
   function getForecast(hours) {
-
-    var lat = 55.589989;
-    var lon = 13.011290;
-    var endPoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/"+lon+"/lat/"+lat+"/data.json"
-
-    var wsymb = ["Clear sky", "Nearly clear sky", "Variable cloudiness", "Halfclear sky", "Cloudy sky", "Overcast", "Fog", "Light rain showers", "Moderate rain showers", "Heavy rain showers", "Thunderstorm", "Light sleet showers", "Moderate sleet showers", "Heavy sleet showers", "Light snow showers", "Moderate snow showers", "Heavy snow showers", "Light rain", "Moderate rain", "Heavy rain", "Thunder", "Light sleet", "Moderate sleet", "Heavy sleet", "Light snowfall", "Moderate snowfall", "Heavy snowfall"]
-    
+    var endPoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/"+config.lon+"/lat/"+config.lat+"/data.json"    
 
     $.getJSON(endPoint).then(function (data) {
       var forecast = data.timeSeries;
       //console.log(forecast)
 
       for(i=0; i<hours; i++) {
-        var description = wsymb[(forecast[i].parameters[18].values[0])-1]
+        var description = config.description[(forecast[i].parameters[18].values[0])-1]
         var temp = Math.round(forecast[i].parameters[11].values[0])
         var date = new Date(forecast[i].validTime);
         var day = date.getDate();
@@ -44,8 +46,8 @@
 
         //split between today and the rest
         var result;
-        var today = new Date();
-        if (date.getDate() == today.getDate()) {
+        var now = new Date();
+        if (date.getDate() == now.getDate()) {
           result = description+". Today at "+hour+":00 it's gonna be "+temp+" °C ";
         }
         else {
