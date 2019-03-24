@@ -7,9 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
+  <ul class="forecast">
+
+  </ul>
   <script>
   function getForecast(hours) {
 
@@ -40,13 +51,13 @@
         else {
           result = description+". Tomorrow at "+hour+":00 it's gonna be "+temp+" °C ";
         }
-        console.log(result);
+        $(".forecast").append("<li>"+result+"</li>")
       }
 
     });
   };
 
-  getForecast(48);
+  getForecast(24);
 </script>
 </body>
 
