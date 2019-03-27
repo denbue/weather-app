@@ -14,6 +14,7 @@
 }
 
 html, body {
+  font-size: 11px;
   width: 100%;
   height: 100%;
   color: black;
@@ -28,6 +29,8 @@ html, body {
   height: 100%;
   align-items: left;
   justify-content: left;
+  background: url('./images/background.png') no-repeat center bottom;
+  background-size: 100% auto;
 }
 
 .weather {
@@ -37,9 +40,9 @@ html, body {
 
   h1.temp {
     position: absolute;
-    left: 13%;
+    left: 4.375rem;
     top: 26%;
-    font-size: 75px;
+    font-size: 9.375rem;
     font-family: 'Gotham';
     &:after {
       content: "°";
@@ -48,23 +51,24 @@ html, body {
 
   h2.description {
     position: absolute;
-    left: 25%;
+    left: 8.375rem;
     top: 45%;
-    font-size: 15px;
+    font-size: 1.875rem;
+    line-height: 1.06;
   }
 
   .wind {
     position: absolute;
-    bottom: 24px;
+    bottom: 19px;
     left: 32px;
-    font-size: 25px;
+    font-size: 3.125rem;
 
     h3 {
       font-family: 'Gotham';
-      font-size: 35px;
+      font-size: 4.375rem;
       display: inline-block;
       position: relative;
-      top: 16px;
+      top: 12px;
       left: -8px;
     }
   }
@@ -83,28 +87,27 @@ html, body {
   justify-content: space-evenly;
 
   li {
-    text-align: right;
+    position: relative;
+
     .hour {
-      position: relative;
-      top: -12px;
-      font-size: 10px;
+      text-align: right;
+      position: absolute;
+      right: 7.75rem;
+      font-size: 1.25rem;
       letter-spacing: 3.33px;
-      display: inline-block;
-      width: 38%;
       
       &:after {
         content: "h";
       }
     }
     .temp {
-      font-size: 20px;
+      position: absolute;
+      left: 3.5rem;
+      font-size: 2.5rem;
       letter-spacing: 6.67px;
-      width: 62%;
-      padding-right: 37px;
-      display: inline-block;
       font-family: 'Gotham';
       &:after {
-        content: "°";
+        content: "1°";
       }
     }
   }
