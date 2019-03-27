@@ -7,60 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" type="text/css" href="app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <style>
-    body {
-      background: black;
-      color: white;
-      font-family: sans-serif;
-      line-height: 1.5;
-    }
-  </style>
+  <script src="./indicators.js" ></script>
+  <script src="./app.js"></script> 
 </head>
 
 <body>
-  <ul class="forecast">
-
-  </ul>
-  <script>
-
-  var config = {
-    lat: 55.589989,
-    lon: 13.011290,
-    description: ["Clear sky", "Nearly clear sky", "Variable cloudiness", "Halfclear sky", "Cloudy sky", "Overcast", "Fog", "Light rain showers", "Moderate rain showers", "Heavy rain showers", "Thunderstorm", "Light sleet showers", "Moderate sleet showers", "Heavy sleet showers", "Light snow showers", "Moderate snow showers", "Heavy snow showers", "Light rain", "Moderate rain", "Heavy rain", "Thunder", "Light sleet", "Moderate sleet", "Heavy sleet", "Light snowfall", "Moderate snowfall", "Heavy snowfall"]
-  }
+  <div class="container">
+    <div class="weather">
+      <h1 class="temp"></h1>
+      <h2 class="description"></h2>
+      <div class="wind">
+          <h3></h3>m/s
+      </div>
+    </div>
+    <ul class="forecast"></ul>
+  </div>
   
-  function getForecast(hours) {
-    var endPoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/"+config.lon+"/lat/"+config.lat+"/data.json"    
-
-    $.getJSON(endPoint).then(function (data) {
-      var forecast = data.timeSeries;
-      //console.log(forecast)
-
-      for(i=0; i<hours; i++) {
-        var description = config.description[(forecast[i].parameters[18].values[0])-1]
-        var temp = Math.round(forecast[i].parameters[11].values[0])
-        var date = new Date(forecast[i].validTime);
-        var day = date.getDate();
-        var hour = date.getHours();
-
-        //split between today and the rest
-        var result;
-        var now = new Date();
-        if (date.getDate() == now.getDate()) {
-          result = description+". Today at "+hour+":00 it's gonna be "+temp+" °C ";
-        }
-        else {
-          result = description+". Tomorrow at "+hour+":00 it's gonna be "+temp+" °C ";
-        }
-        $(".forecast").append("<li>"+result+"</li>")
-      }
-
-    });
-  };
-
-  getForecast(24);
-</script>
+  <script>
+    getWeather();
+    getForecast(12);
+  </script>
 </body>
 
 </html>

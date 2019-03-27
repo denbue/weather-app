@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Gotham';
+  src: url("GothamRounded-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url("Cardo-Regular.woff2") format("woff2");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-family: "Cardo";
+  line-height: 1;
+  background: #F0E8D8;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.weather {
+  width: 68%;
+  height: 100%;
+  position: relative;
+}
+
+.weather h1.temp {
+  position: absolute;
+  left: 13%;
+  top: 26%;
+  font-size: 150px;
+  font-family: 'Gotham';
+}
+
+.weather h1.temp:after {
+  content: "°";
+}
+
+.weather h2.description {
+  position: absolute;
+  left: 25%;
+  top: 45%;
+  font-size: 30px;
+}
+
+.weather .wind {
+  position: absolute;
+  bottom: 24px;
+  left: 32px;
+  font-size: 50px;
+}
+
+.weather .wind h3 {
+  font-family: 'Gotham';
+  font-size: 70px;
+  display: inline-block;
+  position: relative;
+  top: 16px;
+  left: -8px;
+}
+
+.forecast {
+  width: 32%;
+  height: 100%;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.forecast li {
+  text-align: right;
+}
+
+.forecast li .hour {
+  position: relative;
+  top: -12px;
+  font-size: 20px;
+  letter-spacing: 3.33px;
+  display: inline-block;
+  width: 38%;
+}
+
+.forecast li .hour:after {
+  content: "h";
+}
+
+.forecast li .temp {
+  font-size: 40px;
+  letter-spacing: 6.67px;
+  width: 62%;
+  padding-right: 37px;
+  display: inline-block;
+  font-family: 'Gotham';
+}
+
+.forecast li .temp:after {
+  content: "°";
+}
+/*# sourceMappingURL=app.css.map */
