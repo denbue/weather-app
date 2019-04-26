@@ -1,43 +1,47 @@
 var indicators = [
     {
       description: "Clear sky",
-      class: "css-class"
+      class: "clear sky"
+    },
+    {
+      description: "Nearly clear sky",
+      class: "clear sky"
     },
     {
       description: "Variable cloudiness",
-      class: "css-class"
+      class: "half clear sky"
     },
     {
       description: "Halfclear sky",
-      class: "css-class"
+      class: "half clear sky"
     },
     {
       description: "Cloudy sky",
-      class: "css-class"
+      class: "cloudy"
     },
     {
       description: "Overcast",
-      class: "css-class"
+      class: "cloudy"
     },
     {
       description: "Fog",
-      class: "css-class"
+      class: "fog"
     },
     {
       description: "Light rain showers",
-      class: "css-class"
+      class: "light rains"
     },
     {
       description: "Moderate rain showers",
-      class: "css-class"
+      class: "heavy rains"
     },
     {
       description: "Heavy rain showers",
-      class: "css-class"
+      class: "heavy rains"
     },
     {
       description: "Thunderstorm",
-      class: "css-class"
+      class: "thunder"
     },
     {
       description: "Light sleet showers",
@@ -53,7 +57,7 @@ var indicators = [
     },
     {
       description: "Light snow showers",
-      class: "css-class"
+      class: "light snows"
     },
     {
       description: "Moderate snow showers",
@@ -65,42 +69,42 @@ var indicators = [
     },
     {
       description: "Light rain",
-      class: "css-class"
+      class: "light rains"
     },
     {
       description: "Moderate rain",
-      class: "css-class"
+      class: "heavy rains"
     },
     {
       description: "Heavy rain",
-      class: "css-class"
+      class: "heavy rains"
     },
     {
       description: "Thunder",
-      class: "css-class"
+      class: "thunder"
     },
     {
       description: "Light sleet",
-      class: "css-class"
+      class: "medium heavy snows"
     },
     {
       description: "Moderate sleet",
-      class: "css-class"
+      class: "medium heavy snows"
     },
     {
       description: "Heavy sleet",
-      class: "css-class"
+      class: "medium heavy snows"
     },
     {
       description: "Light snowfall",
-      class: "css-class"
+      class: "light snows"
     },
     {
       description: "Moderate snowfall",
-      class: "css-class"
+      class: "medium heavy snows"
     },
     {
       description: "Heavy snowfall",
-      class: "css-class"
+      class: "medium heavy snows"
     },
 ]

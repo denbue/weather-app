@@ -15,7 +15,7 @@ function getWeather() {
         var style = indicators[(indicator-1)].class;
         var temp = Math.round(weather.parameters[11].values[0]);
         var wind = Math.round(weather.parameters[14].values[0]);
-        
+        $(".weather").css("background-image", "url('./images/big/"+style+".png')")
         $(".weather h1").text(temp)
         $(".weather h2").text(description)
         $(".weather h3").text(wind)
@@ -42,8 +42,22 @@ function getForecast(hours) {
         
         console.log(hour,temp,style)
         
-        $(".forecast").append("<li><span class='hour'>"+hour+"</span><span class='temp'>"+temp+"</span></li>")
+        $(".forecast").append("<li><span class='hour'>"+hour+"</span><span class='temp'>"+temp+"</span><span class='indicator'><img src='./images/small/"+style+".png' /></span></li>");
+        //$(".forecast li:after").css("background-image", "url(')")
       }
 
     });
   };
+
+  function enableTimer() {
+    // Reset weather on the hour
+    var current = new Date();
+    var future = new Date();
+    future.setTime(future.getTime() + 3600000); //3600000 = 1 hour
+    future.setMinutes(0);
+    future.setSeconds(0);
+  
+    var timeout = (future.getTime() - current.getTime());
+    setTimeout(function() { window.location.reload(true); }, timeout);
+    console.info("Next refresh will be in " + Math.round(timeout/1000/60) + "min");
+  }

@@ -4,13 +4,14 @@
 
 <head>
   <title>Home Weather App</title>
+  <!-- <meta http-equiv="refresh" content="10"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" type="text/css" href="app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="./indicators.js" ></script>
-  <script src="./app.js"></script> 
+  <script src="./app.js"></script>
 </head>
 
 <body>
@@ -28,6 +29,7 @@
   <script>
     getWeather();
     getForecast(12);
+    enableTimer();
   </script>
 </body>
 

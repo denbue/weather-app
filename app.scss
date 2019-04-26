@@ -37,6 +37,8 @@ html, body {
   width: 68%;
   height: 100%;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 
   h1.temp {
     position: absolute;
@@ -52,7 +54,7 @@ html, body {
   h2.description {
     position: absolute;
     left: 8.375rem;
-    top: 45%;
+    top: 25.6875rem;
     font-size: 1.875rem;
     line-height: 1.06;
   }
@@ -92,7 +94,7 @@ html, body {
     .hour {
       text-align: right;
       position: absolute;
-      right: 7.75rem;
+      left: -1rem;
       font-size: 1.25rem;
       letter-spacing: 3.33px;
       
@@ -101,13 +103,25 @@ html, body {
       }
     }
     .temp {
+      text-align: left;
       position: absolute;
-      left: 3.5rem;
+      left: 2rem;
+      top: -0.4rem;
       font-size: 2.5rem;
       letter-spacing: 6.67px;
       font-family: 'Gotham';
       &:after {
-        content: "1°";
+        content: "°";
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      right: 1.5rem;
+      top: -1.5rem;
+
+      img {
+        height: 4rem
       }
     }
   }

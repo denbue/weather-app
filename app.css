@@ -46,6 +46,8 @@ html, body {
   width: 68%;
   height: 100%;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 .weather h1.temp {
@@ -63,7 +65,7 @@ html, body {
 .weather h2.description {
   position: absolute;
   left: 8.375rem;
-  top: 45%;
+  top: 25.6875rem;
   font-size: 1.875rem;
   line-height: 1.06;
 }
@@ -107,7 +109,7 @@ html, body {
 .forecast li .hour {
   text-align: right;
   position: absolute;
-  right: 7.75rem;
+  left: -1rem;
   font-size: 1.25rem;
   letter-spacing: 3.33px;
 }
@@ -117,14 +119,26 @@ html, body {
 }
 
 .forecast li .temp {
+  text-align: left;
   position: absolute;
-  left: 3.5rem;
+  left: 2rem;
+  top: -0.4rem;
   font-size: 2.5rem;
   letter-spacing: 6.67px;
   font-family: 'Gotham';
 }
 
 .forecast li .temp:after {
-  content: "1°";
+  content: "°";
+}
+
+.forecast li .indicator {
+  position: absolute;
+  right: 1.5rem;
+  top: -1.5rem;
+}
+
+.forecast li .indicator img {
+  height: 4rem;
 }
 /*# sourceMappingURL=app.css.map */
