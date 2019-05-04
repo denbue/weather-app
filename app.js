@@ -29,9 +29,9 @@ function getForecast(hours) {
 
     $.getJSON(endPoint).then(function (data) {
       var forecast = data.timeSeries;
-      //console.log(forecast)
+      console.log(forecast)
 
-      for(i=1; i<hours; i++) {
+      for(i=0; i<hours; i++) {
         
         var indicator = forecast[i].parameters[18].values[0];
         var style = indicators[(indicator-1)].class;
@@ -40,7 +40,7 @@ function getForecast(hours) {
         var hour = date.getHours();
         var temp = Math.round(forecast[i].parameters[11].values[0]);
         
-        console.log(hour,temp,style)
+        console.log(hour+":00",temp,style)
         
         $(".forecast").append("<li><span class='hour'>"+hour+"</span><span class='temp'>"+temp+"</span><span class='indicator'><img src='./images/small/"+style+".png' /></span></li>");
         //$(".forecast li:after").css("background-image", "url(')")
