@@ -1,42 +1,42 @@
-function getWeather() {
-    var endPoint = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+config.api+"/"+config.lon+","+config.lat+"?units=si"
-    
-    $.getJSON(endPoint).then(function (data) {
-        var weather = data.hourly;
-        console.log(weather)
+var endPoint = "https://api.darksky.net/forecast/"+config.api+"/"+config.lat+","+config.lon+"/?units=si&exclude=minutely,daily"
 
-        var indicator = weather.data[0].icon;
-        var description = weather.summary;
-        var temp = Math.round(weather.data[0].apparentTemperature);
-        var wind = Math.round(weather.data[0].windSpeed);
-        $(".weather").css("background-image", "url('./images/big/"+indicator+".png')")
-        $(".weather h1").text(temp)
-        $(".weather h2").text(description)
-        $(".weather h3").text(wind)
+function getWeather() {
+    
+    $.getJSON(endPoint + "&callback=?").then(function (data) {
+        var current = data.hourly;
+        //console.log(current)
+
+        var indicator = current.data[0].icon;
+        var description = current.summary;
+        //var temp = Math.round(current.data[0].apparentTemperature);
+        var temp = Math.round(current.data[0].temperature);
+        var wind = Math.round(current.data[0].windSpeed);
+        $(".current").css("background-image", "url('./images/big/"+indicator+".png')")
+        $(".current h1").text(temp)
+        $(".current h2").text(description)
+        $(".current h3").text(wind)
         
-        console.log(temp,style,description,wind)
+        //console.log(temp,indicator,description,wind)
     });
 }
 
 function getForecast(hours) {
-    var endPoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/"+config.lon+"/lat/"+config.lat+"/data.json"    
 
-    $.getJSON(endPoint).then(function (data) {
-      var forecast = data.timeSeries;
+    $.getJSON(endPoint + "&callback=?").then(function (data) {
+      var forecast = data.hourly;
       console.log(forecast)
 
-      for(i=0; i<hours; i++) {
+      for(i=1; i<hours; i++) {
         
-        var indicator = forecast[i].parameters[18].values[0];
-        var style = indicators[(indicator-1)].class;
-
-        var date = new Date(forecast[i].validTime);
+        var indicator = forecast.data[i].icon;
+        var date = new Date(forecast.data[i].time*1000);
         var hour = date.getHours();
-        var temp = Math.round(forecast[i].parameters[11].values[0]);
+        //var temp = Math.round(forecast.data[0].apparentTemperature);
+        var temp = Math.round(forecast.data[i].temperature);
         
-        console.log(hour+":00",temp,style)
+        console.log(hour+":00",temp,indicator)
         
-        $(".forecast").append("<li><span class='hour'>"+hour+"</span><span class='temp'>"+temp+"</span><span class='indicator'><img src='./images/small/"+style+".png' /></span></li>");
+        $(".forecast").append("<li><span class='hour'>"+hour+"</span><span class='temp'>"+temp+"</span><span class='indicator'><img src='./images/small/"+indicator+".png' /></span></li>");
         //$(".forecast li:after").css("background-image", "url(')")
       }
 
