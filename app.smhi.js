@@ -1,15 +1,21 @@
+var config = {
+    lat: 55.589989,
+    lon: 13.011290,
+}
+
 function getWeather() {
-    var endPoint = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+config.api+"/"+config.lon+","+config.lat+"?units=si"
+    var endPoint = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/"+config.lon+"/lat/"+config.lat+"/data.json"
     
     $.getJSON(endPoint).then(function (data) {
-        var weather = data.hourly;
-        console.log(weather)
+        var weather = data.timeSeries[0];
+        //console.log(weather)
 
-        var indicator = weather.data[0].icon;
-        var description = weather.summary;
-        var temp = Math.round(weather.data[0].apparentTemperature);
-        var wind = Math.round(weather.data[0].windSpeed);
-        $(".weather").css("background-image", "url('./images/big/"+indicator+".png')")
+        var indicator = weather.parameters[18].values[0];
+        var description = indicators[(indicator-1)].description;
+        var style = indicators[(indicator-1)].class;
+        var temp = Math.round(weather.parameters[11].values[0]);
+        var wind = Math.round(weather.parameters[14].values[0]);
+        $(".weather").css("background-image", "url('./images/big/"+style+".png')")
         $(".weather h1").text(temp)
         $(".weather h2").text(description)
         $(".weather h3").text(wind)
