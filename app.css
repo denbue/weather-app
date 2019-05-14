@@ -42,7 +42,7 @@ html, body {
   background-size: 100% auto;
 }
 
-.weather {
+.current {
   width: 68%;
   height: 100%;
   position: relative;
@@ -50,7 +50,7 @@ html, body {
   background-size: 100% auto;
 }
 
-.weather h1.temp {
+.current h1.temp {
   position: absolute;
   left: 4.375rem;
   top: 26%;
@@ -58,11 +58,11 @@ html, body {
   font-family: 'Gotham';
 }
 
-.weather h1.temp:after {
+.current h1.temp:after {
   content: "°";
 }
 
-.weather h2.description {
+.current h2.description {
   position: absolute;
   left: 8.375rem;
   top: 25.6875rem;
@@ -70,14 +70,14 @@ html, body {
   line-height: 1.06;
 }
 
-.weather .wind {
+.current .wind {
   position: absolute;
   bottom: 19px;
   left: 32px;
   font-size: 3.125rem;
 }
 
-.weather .wind h3 {
+.current .wind h3 {
   font-family: 'Gotham';
   font-size: 4.375rem;
   display: inline-block;
