@@ -6,11 +6,11 @@ function sleep() {
     var sunrise = new Date(data.daily.data[0].sunriseTime*1000);
     var sunset = new Date(data.daily.data[0].sunsetTime*1000);
 
-    if (current < sunrise && current > sunset ){
+    if (current > sunset ){
       // Nightmode
-      $(".sleep").addClass("on")
+      $(".sleepMode").addClass("on")
     }
-    
+
 });
 }
 
