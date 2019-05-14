@@ -34,7 +34,8 @@ html, body {
 }
 
 .current {
-  width: 68%;
+  width: 62%;
+  margin-right: 10%;
   height: 100%;
   position: relative;
   background-repeat: no-repeat;
@@ -42,7 +43,7 @@ html, body {
 
   h1.temp {
     position: absolute;
-    left: 4.375rem;
+    left: 2.375rem;
     top: 26%;
     font-size: 9.375rem;
     font-family: 'Gotham';
@@ -53,7 +54,7 @@ html, body {
 
   h2.description {
     position: absolute;
-    left: 8.375rem;
+    left: 3.375rem;
     top: 25.6875rem;
     font-size: 1.875rem;
     line-height: 1.06;
@@ -65,13 +66,18 @@ html, body {
     left: 32px;
     font-size: 3.125rem;
 
-    h3 {
+    h3, h4 {
       font-family: 'Gotham';
       font-size: 4.375rem;
       display: inline-block;
       position: relative;
       top: 12px;
       left: -8px;
+    }
+    h4 {
+      //display: block;
+      //font-size: 3rem;
+      margin-bottom: 16px;
     }
   }
   
@@ -81,7 +87,7 @@ html, body {
 }
 
 .forecast {
-  width: 32%;
+  width: 28%;
   height: 100%;
   list-style: none;
   display: flex;
@@ -108,7 +114,7 @@ html, body {
       left: 2rem;
       top: -0.4rem;
       font-size: 2.5rem;
-      letter-spacing: 6.67px;
+      //letter-spacing: 3.67px;
       font-family: 'Gotham';
       &:after {
         content: "°";

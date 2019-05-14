@@ -14,7 +14,8 @@ function getWeather() {
         $(".current").css("background-image", "url('./images/big/"+indicator+".png')")
         $(".current h1").text(temp)
         $(".current h2").text(description)
-        $(".current h3").text(apparent_temp+"° | "+wind)
+        $(".current h4").text(apparent_temp+"°")
+        $(".current h3").text(wind)
         
         //console.log(temp,indicator,description,wind)
     });
@@ -47,7 +48,7 @@ function getForecast(hours) {
     // Reset weather on the hour
     var current = new Date();
     var future = new Date();
-    future.setTime(future.getTime() + 3600000); //3600000 = 1 hour
+    future.setTime(future.getTime() + 3600000/2); //3600000 = 1 hour
     future.setMinutes(0);
     future.setSeconds(0);
   
