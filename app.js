@@ -8,13 +8,13 @@ function getWeather() {
 
         var indicator = current.data[0].icon;
         var description = current.summary;
-        //var temp = Math.round(current.data[0].apparentTemperature);
+        var apparent_temp = Math.round(current.data[0].apparentTemperature);
         var temp = Math.round(current.data[0].temperature);
         var wind = Math.round(current.data[0].windSpeed);
         $(".current").css("background-image", "url('./images/big/"+indicator+".png')")
         $(".current h1").text(temp)
         $(".current h2").text(description)
-        $(".current h3").text(wind)
+        $(".current h3").text(apparent_temp+"° | "+wind)
         
         //console.log(temp,indicator,description,wind)
     });
