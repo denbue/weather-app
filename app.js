@@ -1,4 +1,18 @@
-var endPoint = "https://api.darksky.net/forecast/"+config.api+"/"+config.lat+","+config.lon+"/?units=si&exclude=minutely,daily"
+var endPoint = "https://api.darksky.net/forecast/"+config.api+"/"+config.lat+","+config.lon+"/?units=si&exclude=minutely"
+
+function sleep() {
+  $.getJSON(endPoint + "&callback=?").then(function (data) {
+    var current = new Date();
+    var sunrise = new Date(data.daily.data[0].sunriseTime*1000);
+    var sunset = new Date(data.daily.data[0].sunsetTime*1000);
+
+    if (current < sunrise && current > sunset ){
+      // Nightmode
+      $(".sleep").addClass("on")
+    }
+    
+});
+}
 
 function getWeather() {
     
@@ -25,7 +39,7 @@ function getForecast(hours) {
 
     $.getJSON(endPoint + "&callback=?").then(function (data) {
       var forecast = data.hourly;
-      console.log(forecast)
+      //console.log(forecast)
 
       for(i=1; i<hours; i++) {
         
