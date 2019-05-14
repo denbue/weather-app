@@ -48,7 +48,7 @@ function getForecast(hours) {
     // Reset weather on the hour
     var current = new Date();
     var future = new Date();
-    future.setTime(future.getTime() + 3600000/2); //3600000 = 1 hour
+    future.setTime(future.getTime() + 3600000); //3600000 = 1 hour
     future.setMinutes(0);
     future.setSeconds(0);
   
