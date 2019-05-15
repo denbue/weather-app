@@ -1,16 +1,14 @@
 var endPoint = "https://api.darksky.net/forecast/"+config.api+"/"+config.lat+","+config.lon+"/?units=si&exclude=minutely"
 var data;
+var sunrise, sunset;
 
 
 function sleep() {
   var current = new Date();
-      current = current.getHours();
-  var sunrise = new Date(data.daily.data[0].sunriseTime*1000);
-      sunrise = sunrise.getHours();
-  var sunset = new Date(data.daily.data[0].sunsetTime*1000);
-      sunset = sunset.getHours();
+      sunrise = new Date(data.daily.data[0].sunriseTime*1000);
+      sunset = new Date(data.daily.data[0].sunsetTime*1000);
 
-  if (current > sunset || current < sunrise ){
+  if (current.getHours() > sunset.getHours() || current.getHours() < sunrise.getHours() ){
     // Nightmode ON
     $(".sleepMode").addClass("on");
   }
