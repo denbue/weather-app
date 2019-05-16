@@ -8,7 +8,8 @@ function sleep() {
       sunrise = new Date(data.daily.data[0].sunriseTime*1000);
       sunset = new Date(data.daily.data[0].sunsetTime*1000);
 
-  if (current.getHours() > sunset.getHours() || current.getHours() < sunrise.getHours() ){
+  //if (current.getHours() > sunset.getHours() || current.getHours() < sunrise.getHours() ){
+  if (current.getHours() < config.sleep ){
     // Nightmode ON
     $(".sleepMode").addClass("on");
   }
