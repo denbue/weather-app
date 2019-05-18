@@ -1,4 +1,4 @@
-var server = "http://nfc-speaker:5002/read";
+var server = "https://nfc-speaker:5002/read";
 var currentPlay;
 
 $(document).ready(function () {
