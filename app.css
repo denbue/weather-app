@@ -157,4 +157,33 @@ html, body {
 .forecast li .indicator img {
   height: 4rem;
 }
+
+.notification {
+  display: block;
+  position: absolute;
+  z-index: 99;
+  width: calc(100% - 16px);
+  left: 8px;
+  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.2);
+  padding: 24px 0 24px 54px;
+  font-size: 2rem;
+  background: url("./images/play.svg") 24px center no-repeat white;
+  background-size: auto 28%;
+  -webkit-transition: all ease-out 300ms;
+  transition: all ease-out 300ms;
+  opacity: 0;
+  bottom: -100px;
+}
+
+.notification.show {
+  opacity: 1;
+  bottom: 8px;
+}
+
+.notification.error {
+  background: #FE5B24;
+  color: white;
+  padding-left: 24px;
+}
 /*# sourceMappingURL=app.css.map */
